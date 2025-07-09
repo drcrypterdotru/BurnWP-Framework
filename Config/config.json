@@ -1,0 +1,37 @@
+{
+    "TECHNOLOGY": {
+        "CVE_Exploiter": true,
+        "LFI_Scanner": true,
+        "PHP": false,
+        "PhpMyAdmin": false,
+        "Plugin_Exploiter": true,
+        "Proxies": true,
+        "Git_Config": false,
+        "Joomla": false,
+        "Joomla Brute": false,
+        "Laravel": false,
+        "WordPress": true,
+        "WP_XMLRPC Brute": false,
+        "User_Agent": false,
+        "WP_PHPUnit": true
+    },
+    "URLs": {
+        "HOST_WebShell": "https://pastebin.com/raw/0xg3wt8U",
+        "RFI_WebShell": "https://gist.githubusercontent.com/py0cool/816d746a56858e602efc3ed07ea7ce3d/raw/b33b1965419a2bba639fe4b964ca3011870c5024/wp"
+    },
+    "Proxy_Config": {
+        "TEST_KEY": "title>Example Domain",
+        "TEST_URL": "https://example.com",
+        "RETRY": 1,
+        "THREADS": 10,
+        "TIMEOUT": 10
+    },
+    "Core": {
+        "userAgent": "pc_firefox",
+        "maxThreads": 16
+    },
+    "QFluentWidgets": {
+        "ThemeColor": "#ff009faa",
+        "ThemeMode": "Dark"
+    }
+}
