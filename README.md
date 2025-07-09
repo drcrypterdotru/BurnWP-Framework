@@ -36,7 +36,7 @@ When combined, these modules provide powerful exploitation capabilities across m
 
 
 🌐 **command attack with lists.txt**  
- ![command attack with lists.txt](https://raw.githubusercontent.com/drcrypterdotru/ZBurnWP-Framework/main/demo/attack_targets.txt.png)
+ ![command attack with lists.txt](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/refs/heads/main/demo/attack_targets.txt.png)
 
  ![full screen](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/main/demo/attack_targets.txt_full.png)
 
