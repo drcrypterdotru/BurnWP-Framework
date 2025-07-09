@@ -106,7 +106,7 @@ Configure BurnWP via a simple UI or directly by editing `Config/config.json`.
 
  ![Full Settings](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/main/demo/ui_2.png)
 ---
-show_cve_info.png
+
 ### 📚 6. CVE Database Overview (Built-In)
 
 BurnWP includes a detailed CVE index that gives you full visibility into available exploits:
