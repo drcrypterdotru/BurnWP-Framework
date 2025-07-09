@@ -62,8 +62,6 @@ Test one specific plugin exploit against a single target domain.
 
 🌐 **Demo Command with Single Target**  
 
- ![show plugins](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/main/demo/list_plugin_targets.png)
-
  ![selection plugins](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/main/demo/plugin_with_per_target.png)
 
 
