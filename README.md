@@ -123,8 +123,46 @@ BurnWP includes a detailed CVE index that gives you full visibility into availab
 | Technology       | Target platform (e.g., WordPress, Laravel, PHP, etc.)|
 
 
- ![CVE Information Details](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/main/demo/show_cve_info.png)
-
+| ID  | Title                                      | CVE            |
+|-----|--------------------------------------------|----------------|
+| 1   | File manager v6.9                          | CVE-2020-25213 |
+| 2   | Cherry Plugin v1.2.7                       | Unknown        |
+| 3   | Social Warfare 3.5.3                       | CVE-2019-9978  |
+| 4   | ContactForm7_DND                           | CVE-2020-12800 |
+| 5   | ContactForm7 5.1.6                         | CVE-2020-35489 |
+| 6   | UserProfile Builder 3.11.7                 | CVE-2024-6366  |
+| 7   | Slider Revolution Shell Upload             | CVE-2014-9735  |
+| 8   | Bricks Builder 1.9.6                       | CVE-2024-25600 |
+| 9   | Plugin Work The Flow 2.5.2                 | Unknown        |
+| 10  | Plugin TheCartPress 1.5.3.6                | Unknown        |
+| 11  | 3DPrint Lite <= 1.9.1.4                    | Unknown        |
+| 12  | Cloudflare                                 | CVE-2017-9841  |
+| 13  | DZS-videogaller                            | CVE-2017-9841  |
+| 14  | MM-plugin                                  | CVE-2017-9841  |
+| 15  | Affinipay-payment-gateway                  | CVE-2017-9841  |
+| 16  | Aspose-pdf-importer                        | CVE-2017-9841  |
+| 17  | Badgeup                                    | CVE-2017-9841  |
+| 18  | Contact-form-7-to-database-extension       | CVE-2017-9841  |
+| 19  | Jannes-mannes-social-media-auto-publisher  | CVE-2017-9841  |
+| 20  | Jekyll-exporter                            | CVE-2017-9841  |
+| 21  | Theme JS_Composer                          | CVE-2017-9841  |
+| 22  | Message-Business                           | CVE-2017-9841  |
+| 23  | MirAd-Network                              | CVE-2017-9841  |
+| 24  | MM-plugin-inc                              | CVE-2017-9841  |
+| 25  | Prh-api                                    | CVE-2017-9841  |
+| 26  | Product-lister-walmart                     | CVE-2017-9841  |
+| 27  | Realia-libraries-PayPal-PHP-SDK            | CVE-2017-9841  |
+| 28  | Rollbar                                    | CVE-2017-9841  |
+| 29  | Shortcode-tumblr-gallery                   | CVE-2017-9841  |
+| 30  | Turtle-ad-network                          | CVE-2017-9841  |
+| 31  | User-export-with-their-meta-data           | CVE-2017-9841  |
+| 32  | Waves-ad-network                           | CVE-2017-9841  |
+| 33  | Plugins-heyloyalty                         | CVE-2017-9841  |
+| 34  | Wptimetoread                               | CVE-2017-9841  |
+| 35  | Theme Divi-child                           | CVE-2017-9841  |
+| 36  | Theme howto_wp                             | CVE-2017-9841  |
+| 37  | Theme techmatters                          | CVE-2017-9841  |
+| 38  | Upload 2018                                | CVE-2017-9841  |
 
 ---
 
