@@ -489,7 +489,7 @@ class HomePage(ScrollArea):
         # print(self.maxThreadsCard.slider.value())
         if self.maxThreadsCard.slider.value() > self.max_threads:
             #print('too much reached')  
-            self.showCustomInfoBar(INFO_TT='Warning: Maximum Threads Reached', INFO_TEXT='Increase More Threads will be Crash while Working')
+            self.showCustomInfoBar(INFO_TT='Warning: Maximum Threads Reached', INFO_CC='Increase More Threads will be Crash while Working')
         
         
 
