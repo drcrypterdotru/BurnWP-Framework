@@ -24,12 +24,12 @@ class DetectCMS_Class:
             WPNonce_code = None
             self.CFG_Target = self.Clean_Protocol(self.CFG_Target)
             
-            HTTPS_V2 = 'https://' + self.CFG_Target
+            HTTP_ = 'http://' + self.CFG_Target
             
             Protocol_Check = ProtocolSSL.Magic_ProtocolSSL(self.CFG_Target, 8, self.Proxies_ON, self.Config_UA)
             RES_PROT = Protocol_Check.Domain_Requestor()
-            if not RES_PROT['protocol'] and not RES_PROT['r_saved']:
-                SmokeCore.Printed_Value.Log_Info(HTTPS_V2, f'[CMS:Timeout]')
+            if not RES_PROT['protocol']:
+                SmokeCore.Printed_Value.Log_Info(HTTP_, f'[CMS:Timeout]')
                 FUC_SAVE.Saved_Result(r'DB_Results\Domain_Technology\Domain_Timeout.txt', f'{self.CFG_Target}\n')
                 return None, None, None
             
@@ -120,9 +120,14 @@ class DetectCMS_Class:
                         FUC_SAVE.Saved_Result(r'DB_Results\Domain_Technology\Wordpress_XMLRPC.txt', f'{RES_PROT['protocol']}\n')
                         
                         return RES_PROT['protocol'], 'WORDPRESS-XMLRPC', WPNonce_code
-                        
+                    
+            if RES_PROT['protocol']:   
                 return RES_PROT['protocol'], 'Unknown_ID', None
+            
 
             return None, None, None
+            
         except:
+            SmokeCore.Printed_Value.Log_Info(HTTP_, f'[CMS:Error]')
+            FUC_SAVE.Saved_Result(r'DB_Results\Domain_Technology\Domain_Error.txt', f'{self.CFG_Target}\n')
             return None, None, None

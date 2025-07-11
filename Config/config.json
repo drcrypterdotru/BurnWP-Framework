@@ -28,7 +28,7 @@
     },
     "Core": {
         "userAgent": "pc_firefox",
-        "maxThreads": 16
+        "maxThreads": 6
     },
     "QFluentWidgets": {
         "ThemeColor": "#ff009faa",

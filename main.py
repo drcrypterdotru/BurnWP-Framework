@@ -766,6 +766,7 @@ def Scan_Plugin(Target): #From Plugin Manager
 
 
 
+
 def Runner_CMSID(domain, Proxies):
     try:
         TARGET = domain
@@ -777,7 +778,7 @@ def Runner_CMSID(domain, Proxies):
                 Core_Helper.Printed_Value.Log_Fail(
                     TAR_PRO, f'[CMS:{WHATISCMS}]')
                 Saved_Result(r'DB_Results\Domain_Technology\Unknown_ID.txt', f'{TAR_PRO}\n')
-            TAR_PRO = TARGET
+            
             return TAR_PRO, 'Unknown_ID', False 
         
         if WHATISCMS in ['WORDPRESS-XMLRPC', 'WORDPRESS']:
@@ -808,6 +809,7 @@ def Runner_CMSID(domain, Proxies):
         return None, None, None
     except:
         return None, None, None
+    
 def MASS_LFI(tar_url, paths, max_workers, stop_on_first=True, Proxies_ON=NO_USED, FOUND_CMS=NO_USED):
     try:    
         Found_res = False

@@ -24,9 +24,6 @@ class Magic_ProtocolSSL:
         self.Proxies_ON = Proxies
         self.RESP_INF = {}
 
-    
-    
-    
     def Pro_Checker(self, port=443):
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
@@ -47,7 +44,7 @@ class Magic_ProtocolSSL:
             
             response = requests.get(HTTPS_V2, 
                                     headers=self.UA_, 
-                                    timeout=None, 
+                                    timeout=self.timeout, 
                                     allow_redirects=True, 
                                     verify=False,
                                     proxies=self.Proxies_ON)
@@ -58,8 +55,8 @@ class Magic_ProtocolSSL:
                                  'r_saved': response }
                 return self.RESP_INF
                 
-        except: 
-            pass 
+        except Exception as e:
+            self.RESP_INF = {'protocol': None, 'r_saved': None, 'err': str(e)} 
         # 2. Check Port 443
         # port_443_open = self.Pro_Checker(443)
         # if port_443_open:
@@ -74,7 +71,9 @@ class Magic_ProtocolSSL:
                 headers=self.UA_,
                 timeout=self.timeout,
                 allow_redirects=True,
-                proxies=self.Proxies_ON
+                proxies=self.Proxies_ON, 
+                verify=False
+                
             )
             if response.status_code < 452:
                 
