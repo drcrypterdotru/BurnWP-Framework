@@ -2,6 +2,7 @@
 
 🌐 **Logo BurnWP-Framework 1.0.0**  
  ![Logo](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/main/demo/logo.png)
+ 
 
 
 ## 📌 Introduction
@@ -14,6 +15,9 @@ Version 1.0.0 focuses exclusively on WordPress vulnerabilities and is optimized 
 This is just the beginning—expect more CMS support and advanced modules in future versions.
 
 ---
+
+🌐 **BurnWP Diagram**  
+ ![BurnWP Diagram](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/main/demo/BurnWP_Diagram.png)
 
 
 ## 🚀 Features – BurnWP Framework v1.0.0
@@ -212,8 +216,6 @@ python3 main.py
 
 <div style="text-align: center;">
 
-🌐 **BurnWP Diagram**  
- ![BurnWP Diagram](https://raw.githubusercontent.com/drcrypterdotru/BurnWP-Framework/main/demo/BurnWP_Diagram.png)
 
 ## More Tools on Forums
 
