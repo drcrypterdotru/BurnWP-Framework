@@ -137,7 +137,7 @@ class Threaded_GET:
         #self.Regex_payload = Regex_payload if Regex_payload else []
         self.results = {}
       
-        self.SET_Redirect = SET_REDIRECT if SET_REDIRECT else True 
+        self.SET_Redirect = True if SET_REDIRECT is None else SET_REDIRECT  
         self.SET_Proxies = CFG_PROXIES if CFG_PROXIES else NO_USED 
         self.sess_ = Mem_Sess
          
@@ -283,7 +283,7 @@ class Threaded_POST:
         self.delay_attack = CFG_DELAY_ATTACK if CFG_DELAY_ATTACK else 0   
     
         self.raw_body = CFG_RAW_BODY if CFG_RAW_BODY else []
-        self.SET_Redirect = SET_REDIRECT if SET_REDIRECT else True #Remembers Default (When allow_redirects is not used):
+        self.SET_Redirect = True if SET_REDIRECT is None else SET_REDIRECT   #Remembers Default allow_redirects is True:
         #print(self.SET_Redirect)
         self.SET_Proxies = CFG_Proxies if CFG_Proxies else NO_USED 
         
