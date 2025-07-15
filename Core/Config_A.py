@@ -1,5 +1,5 @@
 import sys, os 
-sys.path.append(os.path.abspath(r"Files_BurnWP\PyQt-Fluent-Widgets"))
+sys.path.append(os.path.abspath(r"Files_BurnWP/PyQt-Fluent-Widgets"))
 
 from qfluentwidgets import qconfig
 from qfluentwidgets import (

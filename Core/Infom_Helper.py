@@ -75,7 +75,7 @@ def About_US():
 
 def CVE__DB():
     try:
-        df = pd.read_csv(r"Files_BurnWP\CVE_Exploiter_DB.csv")
+        df = pd.read_csv(r"Files_BurnWP/CVE_Exploiter_DB.csv")
         df.columns = df.columns.str.strip().str.lower()
 
         df.insert(0, "id", range(1, len(df) + 1))

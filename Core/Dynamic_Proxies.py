@@ -96,7 +96,7 @@ class ProxyChecker:
 
 
 
-    def Autodetect_Proxies(self, folder=r"Config\Type_Proxies"):
+    def Autodetect_Proxies(self, folder=r"Config/Type_Proxies"):
         types = ["http", "https", "socks4", "socks5"]
         for p_type in types:
             proxies = self.Loader_Proxies(p_type, folder)

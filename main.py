@@ -42,7 +42,7 @@ def Generate_ResultFolder():
     except:
         pass 
     try:
-        os.makedirs(r"DB_Results\Domain_Technology", exist_ok=True) 
+        os.makedirs(r"DB_Results/Domain_Technology", exist_ok=True) 
     except:
         pass 
 Generate_ResultFolder()
@@ -59,7 +59,7 @@ NO_USED = None
 
 
 
-with open(r"Config\config.json", "r") as f:
+with open(r"Config/config.json", "r") as f:
     config_json = json.load(f)
 
 # CFG_DETECT_MULTI_CMS = config_json['TECHNOLOGY']['Detect_All_CMS']
@@ -777,7 +777,7 @@ def Runner_CMSID(domain, Proxies):
             if TAR_PRO:
                 Core_Helper.Printed_Value.Log_Fail(
                     TAR_PRO, f'[CMS:{WHATISCMS}]')
-                Saved_Result(r'DB_Results\Domain_Technology\Unknown_ID.txt', f'{TAR_PRO}\n')
+                Saved_Result(r'DB_Results/Domain_Technology/Unknown_ID.txt', f'{TAR_PRO}\n')
             
             return TAR_PRO, 'Unknown_ID', False 
         
@@ -836,7 +836,7 @@ def MASS_LFI(tar_url, paths, max_workers, stop_on_first=True, Proxies_ON=NO_USED
                             Core_Helper.Printed_Value.Log_Success(tar_url, f"[LFI] {LFI_Results[4]}")
                             TARGET_URL = urljoin(tar_url, vuln_path)
                             
-                            Saved_Result(r"DB_Results\Result_LFI.txt", f"\nLFI Vuln: {TARGET_URL}\n"
+                            Saved_Result(r"DB_Results/Result_LFI.txt", f"\nLFI Vuln: {TARGET_URL}\n"
                                                         f"DB_Name: {DB_NAME}\n"
                                                         f"DB_User: {PMA_USER}\n"
                                                         f"DB_Passwd: {PMA_PASSWD}\n"
@@ -852,7 +852,7 @@ def MASS_LFI(tar_url, paths, max_workers, stop_on_first=True, Proxies_ON=NO_USED
 
                                 if PMA_Mod.PMA_LOGATTACK:
                                     Core_Helper.Printed_Value.Log_Success(tar_url, f"[PMA] PhpMyAdmin | PMA Accessed") 
-                                    Saved_Result(r"DB_Results\PhpMyAdmin_Logged.txt", f"PMA: {TARGET_URL}\nPMA_User: {PMA_USER}\nPMA_Pass: {PMA_PASSWD}\n************************************\n")
+                                    Saved_Result(r"DB_Results/PhpMyAdmin_Logged.txt", f"PMA: {TARGET_URL}\nPMA_User: {PMA_USER}\nPMA_Pass: {PMA_PASSWD}\n************************************\n")
 
                                 else:
                                     Core_Helper.Printed_Value.Log_Fail(tar_url, f"[PMA] PhpMyAdmin | Failed") 
