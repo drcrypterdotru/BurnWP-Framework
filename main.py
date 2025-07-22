@@ -766,7 +766,6 @@ def Scan_Plugin(Target): #From Plugin Manager
 
 
 
-
 def Runner_CMSID(domain, Proxies):
     try:
         TARGET = domain
@@ -809,7 +808,6 @@ def Runner_CMSID(domain, Proxies):
         return None, None, None
     except:
         return None, None, None
-    
 def MASS_LFI(tar_url, paths, max_workers, stop_on_first=True, Proxies_ON=NO_USED, FOUND_CMS=NO_USED):
     try:    
         Found_res = False
@@ -936,7 +934,7 @@ def Brain_Bot(targets):
         Core_Helper.Printed_Value.Log_Error("Error Brain_Bot :", str(er))  
 
 def main():
-    Burnning(Screen)     
+    #Burnning(Screen)     
     Listen_Commander()    
 
 
@@ -949,6 +947,7 @@ def Listen_Commander():
         epilog=" [ Example ] \n"
                f" ***********  python3 {sys.argv[0]} --attack targets.txt\n" \
                f" ***********  python3 {sys.argv[0]} list_plugin --list targets.txt\n" \
+               f" ***********  python3 {sys.argv[0]} list_plugin --plugin WP_Bricks_RCE_196 --list targets.txt\n" \
                f" ***********  python3 {sys.argv[0]} list_plugin --target http://evil_host.com\n" \
                f" ***********  python3 {sys.argv[0]} install_plugin\n" \
                f" ***********  python3 {sys.argv[0]} ui_config\n" \
@@ -984,6 +983,10 @@ def Listen_Commander():
     list_parser.add_argument(
         "--list",
         help="Give-ME : Multi-Target with File (Bulk) *.txt"
+    )
+    list_parser.add_argument(
+        "--plugin",
+        help="Give-ME : Direct CommandLine without choose Plugin Ex: Plugin_Name"
     )
 
     #command : install_plugin 
@@ -1022,15 +1025,24 @@ def Listen_Commander():
                 
                 Plugin_Manager.Plugin_Selected([args.target], Config_UA, PLUGIN_CONTROL_SYSTEM, MAX_THREADS) 
 
+            elif args.plugin and args.list:
+                #print(args.plugin)
+
+                with open(args.list, encoding='utf-8') as file_txt:
+                    targets = [line.strip() for line in file_txt if line.strip()]
+                
+                Plugin_Manager.Plugin_Selected(targets, Config_UA, PLUGIN_CONTROL_SYSTEM, MAX_THREADS, f'Plugins_Exploiter/{args.plugin}')
+
             elif args.list:
 
                 if not os.path.exists(args.list):
                     Core_Helper.Printed_Value.Log_Error("Retry Check Target .txt not found", f"{args.list}")
                     return
+                
                 with open(args.list, encoding='utf-8') as file_txt:
                     targets = [line.strip() for line in file_txt if line.strip()]
                 
-                Plugin_Manager.Plugin_Selected(targets, Config_UA, PLUGIN_CONTROL_SYSTEM, MAX_THREADS)
+                Plugin_Manager.Plugin_Selected(targets, Config_UA, PLUGIN_CONTROL_SYSTEM, MAX_THREADS, NO_USED)
             
             else:
                 Core_Helper.Printed_Value.Log_Info("You need use", "--target or --list.")

@@ -1,4 +1,4 @@
-import os
+import os,sys 
 import time
 import importlib.util
 from watchdog.observers import Observer
@@ -38,11 +38,14 @@ class PluginManager:
         os.makedirs(self.plugin_folder, exist_ok=True) 
         
  
-    def Plugin_Selected(self, Target_Lists, User_Agent, PLUGIN_CONTROL_SYSTEM, MAX_THREADED):
+    def Plugin_Selected(self, Target_Lists, User_Agent, PLUGIN_CONTROL_SYSTEM, MAX_THREADED, Plugin_Named=NO_USED):
+        DIRECT_PLUGIN = False
         PCore.Printed_Value.Log_Success('MAX Threaded :', MAX_THREADED)
         plugin_files = []
-        
-        
+        if Plugin_Named:
+            DIRECT_PLUGIN = True
+            
+    
         for filename in os.listdir(self.plugin_folder):
             full_path = os.path.join(self.plugin_folder, filename) 
             if os.path.isfile(full_path) and filename.endswith(".py") and not filename.startswith("__"):
@@ -55,39 +58,51 @@ class PluginManager:
         PCore.Printed_Value.Log_Success("Plugin_Manager\n\n", "LIST Plugins was Listening....")
         print('\n')
         
-        for idx, (name, _) in enumerate(plugin_files):
-            without_ex = str(name).replace('.py', '')
-            
-            print(f"[{idx}] {without_ex}")
 
-        try:
-            selection = int(input("\n\nSelect plugin number to run: "))
-            _, p_selected = plugin_files[selection]
-            #print(_, p_selected) WP_Bricks_RCE_196.py Plugins_Exploiter\WP_Bricks_RCE_196.py
-            self.Loading_Plugin(p_selected)
-
-            def Per_ScanTGT(i):
-                try:
-                    PRO_TARGET, WPNONCE, P_SESS, PROXIES, FOUND_CMS = PMain.Scan_Plugin(i)
-                    # print(PRO_TARGET, WPNONCE, P_SESS, PROXIES, FOUND_CMS )
-                    if PRO_TARGET:
-                        
-                        
+        if DIRECT_PLUGIN:
+            self.Loading_Plugin(Plugin_Named+'.py')
+        else:
         
-                        self.Run_Plugin(PRO_TARGET, PROXIES, WPNONCE, P_SESS, User_Agent, PLUGIN_CONTROL_SYSTEM, FOUND_CMS)
-                except:pass 
-                
-            with ThreadPoolExecutor(max_workers=MAX_THREADED) as executor:  
-                futures = [executor.submit(Per_ScanTGT, target) for target in Target_Lists]
+            try:
+                for idx, (name, _) in enumerate(plugin_files):
+                    without_ex = str(name).replace('.py', '')
+                    print(f"[{idx}] {without_ex}")
 
-                for future in as_completed(futures):
-                    try:
-                        future.result()  
-                    except Exception as e:
-                        PCore.Printed_Value.Log_Error("Plugin_Manager", f"Error Plugin Selected : {e}")
-       
-        except Exception as er:
-            PCore.Printed_Value.Log_Error("Plugin_Manager", f"Error Invalid Selection : {er}")
+                print("\n\n[999] Exit")
+
+                selection = int(input("\n\nSelect plugin number to run: ")) 
+                if selection == 999: 
+                    print("\nExecuted ==> Exit\n")
+                    sys.exit()
+                _, p_selected = plugin_files[selection]
+                
+                #print(_, p_selected) WP_Bricks_RCE_196.py Plugins_Exploiter\WP_Bricks_RCE_196.py
+                
+                self.Loading_Plugin(p_selected)
+
+            except Exception as er:
+                PCore.Printed_Value.Log_Error("Plugin_Manager", f"Error Invalid Selection : {er}")
+     
+    
+        def Per_ScanTGT(i):
+            try:
+                PRO_TARGET, WPNONCE, P_SESS, PROXIES, FOUND_CMS = PMain.Scan_Plugin(i)
+                # print(PRO_TARGET, WPNONCE, P_SESS, PROXIES, FOUND_CMS )
+                if PRO_TARGET:
+
+                    self.Run_Plugin(PRO_TARGET, PROXIES, WPNONCE, P_SESS, User_Agent, PLUGIN_CONTROL_SYSTEM, FOUND_CMS)
+            except:
+                pass 
+
+        with ThreadPoolExecutor(max_workers=MAX_THREADED) as executor:  
+            futures = [executor.submit(Per_ScanTGT, target) for target in Target_Lists]
+
+            for future in as_completed(futures):
+                try:
+                    future.result()  
+                except Exception as e:
+                    PCore.Printed_Value.Log_Error("Plugin_Manager", f"Error Plugin Selected : {e}")
+
 
     
     def Loading_Plugin(self, path): #Loading per Plugin
@@ -164,8 +179,7 @@ class PluginManager:
         observer = Observer()
         observer.schedule(event_handler, path=self.plugin_folder, recursive=False) 
         observer.start()
-    
-         
+
         try:
             while True:
                 #Set watching every a sec

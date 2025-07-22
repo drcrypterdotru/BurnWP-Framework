@@ -30,12 +30,17 @@ def Help_Tables():
         )
         table.add_row(
             f"[bold white]python3 {sys.argv[0]} list_plugin --list targets.txt[/]",
-            "Attack Multi-Targets with Plugin_Exploiter"
+            "Multi-Targets with Plugin_Exploiter"
+        )
+        table.add_row(
+            f"[bold white]python3 {sys.argv[0]} list_plugin --plugin WP_Bricks_RCE_196 --list targets.txt[/]",
+            "Multi-Target with Plugin Exploiter in Background via nohup"
         )
         table.add_row(
             f"[bold white]python3 {sys.argv[0]} list_plugin --target http://evil_host.com[/]",
             "Attack per domain with Plugin_Exploiter"
         )
+        
         table.add_row(
             f"[bold white]python3 {sys.argv[0]} install_plugin[/]",
             "Install plugins with RealTime Tracking Plugin Valid, Error, Deleted, Modified"
@@ -59,9 +64,9 @@ def Help_Tables():
 def About_US():
     try:
         ABOUT_text = (
-            "\n[bold cyan]BurnWP Framework : 1.0.0[/bold cyan]\n"
+            "\n[bold cyan]BurnWP Framework : 1.0.1[/bold cyan]\n"
             "[green]CODED by Forums :[/green] DRCrypter.ru\n"
-            "[yellow]CORE ENGINE VER :[/yellow] 1.0\n"
+            "[yellow]CORE ENGINE VER :[/yellow] 1.0.1\n"
             "[magenta]DATE PUBLIC :[/magenta] 7-7-2025\n"
             "[blue]LAST UPDATE :[/blue] 7-7-2025\n"
         )
@@ -82,7 +87,7 @@ def CVE__DB():
 
         console = Console()
         table = Table(
-            title="BurnWP Framework 1.0.0 — CVE Exploiter Database",
+            title="BurnWP Framework 1.0 — CVE Exploiter Database",
             header_style="",      
             title_style=""        
         )
@@ -125,4 +130,5 @@ def CVE__DB():
             )
 
         console.print(table)
-    except:pass 
+    except Exception as e:
+        print(e)
