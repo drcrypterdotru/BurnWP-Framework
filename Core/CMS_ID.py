@@ -55,7 +55,10 @@ class DetectCMS_Class:
                     return RES_PROT['protocol'], 'WORDPRESS', WPNonce_code
                 
                 elif self.MULTI_CMS: # Keep detecting multiple technologies on the same URL with different results
-                    if 'joomla' in RAW_Source or 'index.php?option=' in RAW_Source \
+                    if 'wordpress' in Header_RES or 'wp-' in Header_RES:
+                        FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/Wordpress.txt', f'{RES_PROT['protocol']}\n')
+                        return RES_PROT['protocol'], 'WORDPRESS', WPNonce_code 
+                    elif 'joomla' in RAW_Source or 'index.php?option=' in RAW_Source \
                         or 'com_content' in RAW_Source or 'com_users' in RAW_Source \
                         or 'components/com_' in RAW_Source or ('mod_login' in RAW_Source and 'mod_menu' in RAW_Source):
                         FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/Joomla.txt', f'{RES_PROT['protocol']}\n')
@@ -75,9 +78,14 @@ class DetectCMS_Class:
                         FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/Magento.txt', f'{RES_PROT['protocol']}\n')
                         return RES_PROT['protocol'], 'MAGENTO', None 
                         
-                    elif 'wordpress' in Header_RES or 'wp-' in Header_RES:
-                        FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/Wordpress.txt', f'{RES_PROT['protocol']}\n')
-                        return RES_PROT['protocol'], 'WORDPRESS', WPNonce_code 
+
+                    elif 'laravel' in Header_RES:
+                        FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/Laravel.txt', f'{RES_PROT['protocol']}\n')
+                        return RES_PROT['protocol'], 'LARAVEL', None 
+
+                    elif 'php/' in Header_RES or '.php' in Header_RES:
+                        FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/PHP.txt', f'{RES_PROT['protocol']}\n')
+                        return RES_PROT['protocol'], 'PHP', None 
                     
                     elif 'apache' in Header_RES or 'httpd' in Header_RES or 'mod_security' in Header_RES or 'mod_ssl' in Header_RES:
                         FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/Apache.txt', f'{RES_PROT['protocol']}\n')
@@ -88,14 +96,6 @@ class DetectCMS_Class:
                         FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/Nginx.txt', f'{RES_PROT['protocol']}\n')
                         return RES_PROT['protocol'], 'NGINX', None 
 
-                    elif 'laravel' in Header_RES:
-                        FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/Laravel.txt', f'{RES_PROT['protocol']}\n')
-                        return RES_PROT['protocol'], 'LARAVEL', None 
-
-                    elif 'php/' in Header_RES or '.php' in Header_RES:
-                        FUC_SAVE.Saved_Result(r'DB_Results/Domain_Technology/PHP.txt', f'{RES_PROT['protocol']}\n')
-                        return RES_PROT['protocol'], 'PHP', None 
-            
                 
             elif RES_PROT['protocol']:    
                 GET_XMLRPC = SmokeCore.Threaded_GET(
