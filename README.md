@@ -196,7 +196,13 @@ python3 main.py
 <summary>🐧 How to Install on Linux</summary>
 
 ```bash
+#Linux system dependencies
+sudo apt update && sudo apt install -y \
+    libxcb-xinerama0 libxkbcommon-x11-0 \
+    libqt5gui5 libqt5widgets5 libqt5quick5 libqt5svg5
+    
 python3 -m pip install -r requirements.txt
+
 python3 main.py
 ```
 </details>
