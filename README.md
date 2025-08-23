@@ -200,8 +200,14 @@ python3 main.py
 sudo apt update && sudo apt install -y \
     libxcb-xinerama0 libxkbcommon-x11-0 \
     libqt5gui5 libqt5widgets5 libqt5quick5 libqt5svg5
-    
-python3 -m pip install -r requirements.txt
+
+#Create a virtual environment
+sudo apt install -y python3-venv
+
+python3 -m venv .venv
+source .venv/bin/activate    
+python3 -m pip install --upgrade pip
+pip install -r requirements.txt
 
 python3 main.py
 ```
